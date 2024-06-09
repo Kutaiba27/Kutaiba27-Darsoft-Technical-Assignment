@@ -1,6 +1,11 @@
 
 # Configuration App 
 
+## get repository from github repository
+### Copy this repository
+[link repo](https://github.com/Kutaiba27/Kutaiba27-Darsoft-Technical-Assignment.git)
+
+
 ## Installation Dependencies
 
 ```bash
