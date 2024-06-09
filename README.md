@@ -32,3 +32,6 @@ $ npm run start
 $ npm run start:dev
 
 ```
+## To Show an OpentApi documentation
+[link repo](http://localhost:5000/api)
+

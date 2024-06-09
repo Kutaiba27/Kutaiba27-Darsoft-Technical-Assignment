@@ -5,6 +5,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AddressModule } from './address/address.module';
+import { NewsModule } from './news/news.module';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { AddressModule } from './address/address.module';
       envFilePath: 'config.dev.env',
       isGlobal: true
     }),
-    DatabaseModule, UserModule, AuthModule, AddressModule],
+    DatabaseModule, UserModule, AuthModule, AddressModule, NewsModule],
 })
 export class AppModule {
   constructor(private readonly config: ConfigService){

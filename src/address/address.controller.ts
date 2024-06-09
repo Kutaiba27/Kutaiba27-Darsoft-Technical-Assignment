@@ -10,6 +10,7 @@ import { CreateAddressRes } from './types/createAddressRes.type';
 import { Address } from 'src/database/schemas/address.schema';
 import { WrapResponseInterceptor } from 'src/common/interceptors/wrap-response.interceptor';
 import { ApiBearerAuth, ApiHeader, ApiTags } from '@nestjs/swagger';
+import { CheckMongoIdPipe } from 'src/common/pipes/check-valid-id.pipe';
 
 @ApiTags('address')
 @ApiBearerAuth()
@@ -55,7 +56,7 @@ export class AddressController {
    @Role('user')
    @UseGuards(JwtAuthGuard)
    @HttpCode(204)
-   async deleteUserAddress(@GetUserId() userId: string, @Param('id') addressId: string){
+   async deleteUserAddress(@GetUserId() userId: string, @Param('id',CheckMongoIdPipe) addressId: string){
       return await this.addressService.deleteAddress(userId, addressId)
    }
 }

@@ -7,6 +7,9 @@ import { RoleGuard } from 'src/auth/guards/role/role.guard';
 import { GetUserId } from 'src/common/decorators/getCurrentUserId.decorator';
 import { UpdateUserDto } from './dto/updateInfo.dto'
 import { ApiBearerAuth, ApiBody, ApiParam, ApiTags } from '@nestjs/swagger';
+import { CheckMongoIdPipe } from 'src/common/pipes/check-valid-id.pipe';
+import { Role as EnumRole } from 'src/auth/types/role.enum';
+
 
 @ApiTags('user')
 @ApiBearerAuth()
@@ -36,8 +39,16 @@ export class UserController {
    @Get('user-profile/:id')
    @ApiParam({name:'id',type: String})
    @HttpCode(200)
-   async getUserProfile(@Param('id') id:string){
+   async getUserProfile(@Param('id', CheckMongoIdPipe) id:string){
       return await this.userService.getUserProfile(id)
+   }
+
+   @Put('update-user-role/:id-user')
+   @ApiBody({ enum: ['admin', 'user']})
+   @Role('admin')
+   @UseGuards(JwtAuthGuard, RoleGuard)
+   async updateUserRole(@Param('id-user', CheckMongoIdPipe) userId:string, @Body() role: EnumRole ){
+      return await this.userService.updateUserRole(userId,role)
    }
 
 }

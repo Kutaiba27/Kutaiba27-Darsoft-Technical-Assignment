@@ -56,7 +56,11 @@ export class User {
    phone: string
 
    @Prop({
-      type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Address' }],
+      type: [{ 
+         type: mongoose.Schema.Types.ObjectId,
+         ref: 'Address'
+      }],
+         default:[]
    })
    address: AddressDocument[]
 }

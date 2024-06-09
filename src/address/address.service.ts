@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Address } from 'src/database/schemas/address.schema';
@@ -15,12 +15,16 @@ export class AddressService {
    ){}
 
    async createAddress(addressInfo: CreateAddressDto, id:string){
-      const user:UserDocument = await this.userService.getUserProfile(id)
-      const address = {...addressInfo,user: user}
-      const newAddress = await this.AddressModel.create(address)
-      user.address.push(newAddress)
-      await user.save()
-      return newAddress
+      try{
+         const user:UserDocument = await this.userService.getUserProfile(id)
+         const address = {...addressInfo,user: user}
+         const newAddress = await this.AddressModel.create(address)
+         user.address.push(newAddress)
+         await user.save()
+         return newAddress
+      }catch(error){
+         throw new HttpException(error.message ,500)
+      }
    }
 
    async getUserAddress(id:string){

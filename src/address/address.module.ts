@@ -7,6 +7,7 @@ import { Address, AddressSchema } from 'src/database/schemas/address.schema';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { RoleGuard } from 'src/auth/guards/role/role.guard';
 import { UserModule } from 'src/user/user.module';
+import { CheckLogInPipe } from 'src/common/pipes/check-log-in.pipe';
 
 @Module({
   imports: [
@@ -14,6 +15,6 @@ import { UserModule } from 'src/user/user.module';
     MongooseModule.forFeature([{name: Address.name, schema:AddressSchema }])
   ],
   controllers: [AddressController],
-  providers: [AddressService, JwtAuthGuard, RoleGuard]
+  providers: [AddressService, JwtAuthGuard, RoleGuard,CheckLogInPipe]
 })
 export class AddressModule {}
