@@ -35,3 +35,5 @@ $ npm run start:dev
 ## To Show an OpentApi documentation
 [link repo](http://localhost:5000/api)
 
+## Postman collection 
+[link](https://drive.google.com/file/d/1olU4j1GZuiGpcdULG_wcAnFQa5tfR-O9/view?usp=drive_link)
