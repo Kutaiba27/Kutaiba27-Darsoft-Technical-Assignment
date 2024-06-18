@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Get, HttpCode, Param, Put, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
@@ -52,3 +53,9 @@ export class UserController {
    }
 
 }
+=======
+import { Controller } from '@nestjs/common';
+
+@Controller('user')
+export class UserController {}
+>>>>>>> d432704 (initail commit)

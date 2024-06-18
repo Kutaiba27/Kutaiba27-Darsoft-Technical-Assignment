@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable prettier/prettier */
 import { TokenService } from './token.service';
 import { HttpException, Injectable } from '@nestjs/common';
@@ -29,3 +30,9 @@ export class AuthService {
       return this.tokenService.generateToken(user)
    }   
 }
+=======
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class AuthService {}
+>>>>>>> d432704 (initail commit)

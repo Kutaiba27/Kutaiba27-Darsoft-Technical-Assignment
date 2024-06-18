@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -26,6 +27,14 @@ import { JwtStrategy } from './stratigeis/jwt.strategies';
     AuthService,
     TokenService
   ],
+=======
+import { Module } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { AuthController } from './auth.controller';
+
+@Module({
+  providers: [AuthService],
+>>>>>>> d432704 (initail commit)
   controllers: [AuthController]
 })
 export class AuthModule {}
