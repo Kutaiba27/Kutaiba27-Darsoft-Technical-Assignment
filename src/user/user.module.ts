@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { UserService } from './user.service';
@@ -14,14 +13,6 @@ import { CheckMongoIdPipe } from 'src/common/pipes/check-valid-id.pipe';
   providers: [UserService, JwtAuthGuard, RoleGuard,CheckMongoIdPipe],
   controllers: [UserController],
   exports: [MongooseModule.forFeature([{name: User.name, schema: UserSchema }]),UserService]
-=======
-import { Module } from '@nestjs/common';
-import { UserController } from './user.controller';
-import { UserService } from './user.service';
 
-@Module({
-  controllers: [UserController],
-  providers: [UserService]
->>>>>>> d432704 (initail commit)
 })
 export class UserModule {}

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable prettier/prettier */
 import { InjectModel } from '@nestjs/mongoose';
 import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
@@ -86,9 +85,4 @@ export class UserService {
 
 
 }
-=======
-import { Injectable } from '@nestjs/common';
 
-@Injectable()
-export class UserService {}
->>>>>>> d432704 (initail commit)

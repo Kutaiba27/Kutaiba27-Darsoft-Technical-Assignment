@@ -10,7 +10,7 @@ import { AddressDocument } from './address.schema';
 @Schema({timestamps: true})
 export class User {
    @Prop(String)
-   fullName: string;
+   fullName: string; 
 
    @Prop({
       type: String,

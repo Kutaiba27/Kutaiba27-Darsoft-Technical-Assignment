@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -26,9 +25,4 @@ export class AuthController {
       return await this.authService.logIn(logInInfo)
    }
 }
-=======
-import { Controller } from '@nestjs/common';
 
-@Controller('auth')
-export class AuthController {}
->>>>>>> d432704 (initail commit)
